@@ -10,10 +10,10 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y dnf5-plugins git-delta stow bat fzf helix golang 7zip zoxide libnotify ripgrep tmux libreoffice gimp inkscape hexyl
+dnf5 -y install dnf5-plugins git-delta stow bat fzf helix golang 7zip zoxide libnotify ripgrep tmux libreoffice gimp inkscape hexyl
 
-dnf5 config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
-dnf5 install gh --repo gh-cli
+dnf5 -y config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+dnf5 -y install gh --repo gh-cli
 
 # Use a COPR Example:
 #
