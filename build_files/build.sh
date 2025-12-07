@@ -10,7 +10,10 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y dnf5-plugins git-delta stow bat fzf helix golang 7zip zoxide libnotify ripgrep tmux libreoffice gimp inkscape hexyl
+
+dnf5 config-manager addrepo --from-repofile=https://cli.github.com/packages/rpm/gh-cli.repo
+dnf5 install gh --repo gh-cli
 
 # Use a COPR Example:
 #
@@ -18,6 +21,13 @@ dnf5 install -y tmux
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+dnf5 -y copr enable wezfurlong/wezterm-nightly
+dnf5 -y install wezterm
+dnf5 -y copr disable wezfurlong/wezterm-nightly
+
+dnf5 -y copr enable atim/bottom
+dnf5 -y install bottom
+dnf5 -y copr disable atim/bottom
 
 #### Example for enabling a System Unit File
 
