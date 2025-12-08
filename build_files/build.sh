@@ -48,6 +48,7 @@ cd /tmp
 git clone https://github.com/catppuccin/papirus-folders.git
 cd papirus-folders
 mkdir -p /usr/share/icons/Papirus
+cp -r src/* /usr/share/icons/Papirus  
 curl -LO https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/papirus-folders && chmod +x ./papirus-folders
 ./papirus-folders -C cat-mocha-sky --theme Papirus-Dark
 ./papirus-folders -C cat-latte-sky --theme Papirus-Light
