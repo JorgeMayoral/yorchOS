@@ -24,6 +24,7 @@ end)
 config.enable_wayland = false
 config.color_scheme = "Catppuccin Mocha"
 -- config.window_background_opacity = 0.75
+-- config.kde_window_background_blur = true
 -- config.window_decorations = "NONE"
 config.font = wezterm.font("DepartureMono Nerd Font")
 
@@ -50,5 +51,8 @@ config.keys = require("keybinds")
 config.set_environment_variables = {
     TERM = "xterm-256color",
 }
+
+config.default_prog = {"/home/linuxbrew/.linuxbrew/bin/nu"}
+config.default_cwd = os.getenv("HOME")
 
 return config

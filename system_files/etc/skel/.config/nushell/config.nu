@@ -18,6 +18,15 @@
 # them for future reference.
 use std/util "path add"
 
+if ($nu.is-login) {
+    cd ($env.HOME)
+}
+
+if ($nu.is-interactive) and ($env.PWD != $env.HOME) {
+    cd $env.HOME
+}
+
+
 $env.config = {
     show_banner: false
     buffer_editor: "code"
@@ -118,6 +127,8 @@ $env.FZF_DEFAULT_OPTS = "
 path add "~/.fnm"
 path add "~/.local/bin"
 path add "~/go/bin"
+path add "/home/linuxbrew/.linuxbrew/bin"
+path add "/home/linuxbrew/.linuxbrew/sbin"
 
 fnm env --json | from json | load-env
 path add ($env.FNM_MULTISHELL_PATH + /bin)
@@ -133,3 +144,4 @@ alias l = ls -a
 alias k = kubectl
 #alias docker = podman
 #alias zed = zeditor
+source $"($nu.home-path)/.cargo/env.nu"
