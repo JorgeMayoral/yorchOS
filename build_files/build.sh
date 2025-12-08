@@ -34,6 +34,25 @@ dnf5 -y copr disable atim/bottom
 systemctl enable podman.socket
 
 
+# CATPPUCCIN CURSORS
+mkdir -p /usr/share/icons
+cd /usr/share/icons
+curl -LOsS https://github.com/catppuccin/cursors/releases/download/v2.0.0/catppuccin-mocha-sky-cursors.zip
+curl -LOsS https://github.com/catppuccin/cursors/releases/download/v2.0.0/catppuccin-latte-sky-cursors.zip
+unzip catppuccin-mocha-sky-cursors.zip
+unzip catppuccin-latte-sky-cursors.zip
+
+# CATPPUCCIN ICONS
+wget -qO- https://git.io/papirus-icon-theme-install | sh
+cd /tmp
+git clone https://github.com/catppuccin/papirus-folders.git
+cd papirus-folders
+mkdir -p /usr/share/icons/Papirus
+curl -LO https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/papirus-folders && chmod +x ./papirus-folders
+./papirus-folders -C cat-mocha-sky --theme Papirus-Dark
+./papirus-folders -C cat-latte-sky --theme Papirus-Light
+
+
 # CLEANUP
 # Clean package manager cache
 dnf5 clean all
